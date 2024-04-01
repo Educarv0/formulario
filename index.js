@@ -1,65 +1,90 @@
+const form = document.getElementById("form");
+const username = document.getElementById("username")
+const email = document.getElementById("email")
+const password = document.getElementById("password")
 
-let currentStep = 1;
 
-function nextStep() {
-  if (currentStep === 1 && validateStep1()) {
-    document.getElementById('step1').style.display = 'none';
-    currentStep++;
-    document.getElementById('step2').style.display = 'block';
-  } else if (currentStep === 2 && validateStep2()) {
-    document.getElementById('step2').style.display = 'none';
-    currentStep++;
-    document.getElementById('step3').style.display = 'block';
-    displayConfirmation();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  checkForm();
+})
+
+email.addEventListener("blur", () => {
+  checkInputEmail();
+})
+
+
+username.addEventListener("blur", () => {
+  checkInputUsername();
+})
+
+
+function checkInputUsername(){
+  const usernameValue = username.value;
+
+  if(usernameValue === ""){
+    errorInput(username, "Preencha o nome de usuario!")
+  }else{
+    const formItem = username.parentElement;
+    formItem.className = "form-content"
   }
+
 }
 
-function prevStep() {
-  if (currentStep > 1) {
-    if (currentStep === 2) {
-      document.getElementById('step2').style.display = 'none';
-      currentStep--;
-      document.getElementById('step1').style.display = 'block';
-    } else if (currentStep === 3) {
-      document.getElementById('step3').style.display = 'none';
-      currentStep--;
-      document.getElementById('step2').style.display = 'block';
-    }
+function checkInputEmail(){
+  const emailValue = email.value;
+
+  if(emailValue === ""){
+    errorInput(email, "O email é obrigatório!")
+  }else{
+    const formItem = email.parentElement;
+    formItem.className = "form-content"
   }
+
+
 }
 
-function validateStep1() {
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
 
-  return nome && email;
+function checkInputPassword(){
+  const passwordValue = password.value;
+
+  if(passwordValue === ""){
+    errorInput(password, "A senha é obrigatória!")
+  }else if(passwordValue.length < 8){
+    errorInput(password, "A senha precisa ter no mínimo 8 caracteres!")
+  }else{
+    const formItem = password.parentElement;
+    formItem.className = "form-content"
+  }
+
+
 }
 
-function validateStep2() {
-  const telefone = document.getElementById('telefone').value;
-  const endereco = document.getElementById('endereco').value;
+function checkForm(){
+  checkInputUsername();
+  checkInputEmail();
+  checkInputPassword();
 
-  return telefone && endereco;
+  const formItems = form.querySelectorAll(".form-content")
+
+  const isValid = [...formItems].every( (item) => {
+    return item.className === "form-content"
+  });
+
+  if(isValid){
+    alert("CADASTRADO COM SUCESSO!")
+  }
+
 }
 
-function displayConfirmation() {
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const telefone = document.getElementById('telefone').value;
-  const endereco = document.getElementById('endereco').value;
 
-  const confirmationHTML = `
-    <p><strong>Nome:</strong> ${nome}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Telefone:</strong> ${telefone}</p>
-    <p><strong>Endereço:</strong> ${endereco}</p>
-  `;
+function errorInput(input, message){
+  const formItem = input.parentElement;
+  const textMessage = formItem.querySelector("a")
 
-  document.getElementById('confirmation').innerHTML = confirmationHTML;
-}
+  textMessage.innerText = message;
 
-function submitForm() {
-  document.getElementById('multi-step-form').reset();
-  document.getElementById('form-container').style.display = 'none';
-  document.getElementById('success-message').style.display = 'block';
+  formItem.className = "form-content error"
+
 }
