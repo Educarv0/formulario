@@ -1,76 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css"  />
+
+  <title>Forms</title>
 </head>
 <body>
     
-    <main>
-        <div class="form-container" id="form-container">
-            <form id="multi-step-form">
-                <div id="step1">
-                    <div class="info-step-1">
-                        <p class="p-1">Detalhes pessoais</p>
-                        <p class="p-2">Contato</p>
-                        <p class="p-3">Confimação</p>
-                    </div>
+  <div class="container">
+    <section class="header">
+      <h2>Formulario</h2>
+    </section>
 
-                    <div class="input-box">
-                        <img src="imagens/pessoa.png" alt="">    
-                        <input type="text" id="nome" placeholder="Digite seu nome aqui" required>
-                    </div>
+    <form action="https://formsubmit.co/dudu.edu1904@gmail.com" method="POST">
+      <div class="form-content">
+        <label for="username">Nome do usuário</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Digite o nome do usuario..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
 
-                    <div class="input-box">
-                        <img src="imagens/comunicacao.png" alt="">
-                        <input type="email" id="email" placeholder="Digite seu email aqui" required>
-                    </div>
-                    <button type="button" class="next" onclick="nextStep()">Próximo</button>
-                </div>
+      <div class="form-content">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite o seu email..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
 
-                <div id="step2" style="display: none;">
-                    <div class="info-step-2">
-                        <p class="p-1">Detalhes pessoais</p>
-                        <p class="p-2">Contato</p>
-                        <p class="p-3">Confimação</p>
-                    </div>
+      <div class="form-content">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Digite sua senha..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+      <div class="form-content">
+        <label for="message">Mensagem</label>
+        <br>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Deixe sua mensagem aqui"></textarea>
+      </div>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="ttp://127.0.0.1:5500/obrigado.html">
+      <button type="submit">Enviar</button>
 
-                    <div class="input-box">
-                        <img src="imagens/telefone.png" alt="">
-                        <input type="tel" id="telefone" placeholder="Digite seu telefone aqui" required>
-                    </div>
+    </form>
 
-                    <div class="input-box">
-                        <img src="imagens/localizacao.png" alt="">
-                        <input type="text" id="endereco" placeholder="Digite seu endereço aqui" required>
-                    </div>
-                    
-                    <button type="button" class="back" onclick="prevStep()">Voltar</button>
-                    <button type="button" class="next" onclick="nextStep()">Próximo</button>
-                </div>
+  </div>
+  
 
-                <div id="step3" style="display: none;">
-                    <div class="info-step-3">
-                        <p class="p-1">Detalhes pessoais</p>
-                        <p class="p-2">Contato</p>
-                        <p class="p-3">Confimação</p>
-                    </div>
-
-                    <div id="confirmation"></div>
-
-                    <button type="button" class="back" onclick="prevStep()">Voltar</button>
-                    <button type="submit" class="next" onclick="submitForm()">Enviar</button>
-                </div>
-            </form>
-          </div>
-
-          <div id="success-message" style="display: none;">
-            <h1>Informações enviadas com sucesso.</h1>
-          </div>
-    </main>
-
-    <script src="/index.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
