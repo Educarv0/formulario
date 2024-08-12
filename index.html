@@ -1,73 +1,30 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="./style.css"  />
-
-  <title>Forms</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagens/logo.png">
+    <link rel="stylesheet" href="formulario.css">
+    <title>Contato</title>
 </head>
 <body>
-    
-  <div class="container">
-    <section class="header">
-      <h2>Formulario</h2>
-    </section>
+    <div class="contact">
+        <h1>contate-me*</h1>
+        <form action="https://formsubmit.co/sergeantguy321@gmail.com" method="POST">
+            <input type="text" name="Nome" placeholder="Nome completo" class="contact-input" required>
+            <input type="email" name="Email" placeholder="Email" class="contact-input" required>
+            <input type="text" name="Telefone" placeholder="Telefone" class="contact-input" required>
+            <textarea name="message" placeholder="Mensagem" class="contact-input"></textarea required>
+            
+            <button type="submit" class="btn">Enviar</button>
 
-    <form action="https://formsubmit.co/dudu.edu1904@gmail.com" method="POST">
-      <div class="form-content">
-        <label for="nome">Nome do usuário</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          placeholder="Digite o nome do usuario..."
-        />
-        <a>Aqui vai a mensagem de erro....</a>
-      </div>
-
-      <div class="form-content">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite o seu email..."
-        />
-        <a>Aqui vai a mensagem de erro....</a>
-      </div>
-
-      <div class="form-content">
-        <label for="password">Senha</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Digite sua senha..."
-        />
-        <a>Aqui vai a mensagem de erro....</a>
-      </div>
-      <div class="form-content">
-        <label for="message">Mensagem</label>
-        <br>
-        <textarea name="message" id="message" cols="30" rows="10" placeholder="Deixe sua mensagem aqui"></textarea>
-      </div>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="ttp://127.0.0.1:5500/obrigado.html">
-      <input type="hidden" name="_cc" value="dudu.edu1904@gmail.com, prof.carlos.costa@acad.ifma.edu.br">
-      <button type="submit">Enviar</button>
-
-    </form>
-
-  </div>
-  
-
-  <script src="./index.js"></script>
+            <input type="hidden" name="_subject" value="Novo Contato!">
+            <input type="text" name="_honey" style="display:none;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_cc" value="carvalhoalves@acad.ifma.edu.br, prof.carlos.costa@acad.ifma.edu.br">
+        </form>
+    </div>
 </body>
 </html>
